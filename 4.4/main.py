@@ -2,13 +2,18 @@
 # Author: Salomi Aiyathurai
 
 import turtle
-'''
+
 recursive_drawings = {
-    "tree": {}
-    "snowflake": {}
+    "tree": {
+        "angle": 25,
+        "branchLength": 100
+    },
+    "snowflake": {
+        "length": 200
+    }
 }
-'''
-# fprgpt the commas at the end of each idctionary
+
+# syntax error: forgot to put commas between each entery in dictionary
 tree_themes = {
     # tree themes
     "original tree": {"leaf": "green", "branch": "brown"},
@@ -104,11 +109,18 @@ else:
 
 level = int(input("Enter how many levels of the drawing you want: "))
 
-pmo = turtle.Turtle()
-pmo.speed(0)
-pmo.penup()
-pmo.goto(0, 0)
+
+turtle.speed(0)
+turtle.penup()
+turtle.goto(0, 0)
 
 if drawing_choice == "1":
-    pmo.goto(0, -180)
-    pmo.pendown()
+    turtle.goto(0, -180)
+    turtle.pendown()
+    drawTree(level, recursive_drawings["tree"]["branchLength"], recursive_drawings["tree"]["angle"], theme)
+
+else:
+    turtle.pendown()
+    drawSnowflake(recursive_drawings["tree"]["length"], level, theme)
+
+turtle.done()
