@@ -99,7 +99,7 @@ if drawing_choice == "1":
 
 else:
     print("Choose a snowflake color theme:")
-    print("original snowflake, frosty, icy")
+    print("original snowflake, frostfrost, icy")
     theme_choice = input("Enter theme: ").lower()
 
     while theme_choice not in snowflake_themes:
@@ -108,7 +108,9 @@ else:
     theme = snowflake_themes[theme_choice]
 
 level = int(input("Enter how many levels of the drawing you want: "))
-
+if level > 50:
+    print("Too much to print.")
+    exit()
 
 turtle.speed(0)
 turtle.penup()
@@ -116,11 +118,12 @@ turtle.goto(0, 0)
 
 if drawing_choice == "1":
     turtle.goto(0, -180)
+    turtle.left(90)
     turtle.pendown()
     drawTree(level, recursive_drawings["tree"]["branchLength"], recursive_drawings["tree"]["angle"], theme)
 
 else:
     turtle.pendown()
-    snowflake(recursive_drawings["snowflake"]["length"], level, theme)
+    drawSnowflake(recursive_drawings["snowflake"]["length"], level, theme)
 
 turtle.done()
