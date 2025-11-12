@@ -5,6 +5,7 @@ import turtle
 turtle = turtle.Turtle()
 turtle.speed(0)
 turtle.penup()
+turtle.left(90)
 
 recursive_drawings = {
     "tree": {
@@ -41,6 +42,8 @@ def drawTree(level, branchLength, angle, colors):
         turtle.color(list(colors.values())[0]) # list colors?
         turtle.stamp()
         return 1
+    
+next_tree_x = -200
 
 while True:
     # program is asking user to input 1 or 2 
@@ -66,5 +69,10 @@ while True:
     if level > 50:
         print("Too much to print.")
         exit()
+    
+    turtle.goto(next_tree_x, -180)
+    turtle.pendown()
+    total_calls = drawTree(level, recursive_drawings["tree"]["branchLength"], recursive_drawings["tree"]["angle"], theme)
+    print("The amount of trees recursivaly called:" + str(total_calls))
 
-    turtle.done()
+    next_tree_x += 250
