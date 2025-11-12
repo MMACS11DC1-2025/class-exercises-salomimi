@@ -8,15 +8,14 @@ turtle.penup()
 
 recursive_drawings = {
     "tree": {
-        "angle": 25,
-        "branchLength": 100
+        "angle": 25,"branchLength": 100
     }
 }
 
 # syntax error: forgot to put commas between each entery in dictionary
 tree_themes = {
     # tree themes
-    "original tree": {"leaf": "green", "branch": "brown"},
+    "original": {"leaf": "green", "branch": "brown"},
     "red": {"light red": "#FFA07A", "dark red": "#8B0000"},
     "orange": {"light orange": "#FFD580", "dark orange": "#FF8C00"},
     "yellow": {"light yellow": "#FFFF99", "dark yellow": "#FFD700"},
@@ -30,49 +29,42 @@ def drawTree(level, branchLength, angle, colors):
         turtle.color(list(colors.values())[1]) # list colors?
         turtle.forward(branchLength)
         turtle.left(angle)
-        drawTree(level - 1, branchLength / 1.6, angle, colors)
+        left_branch = drawTree(level - 1, branchLength / 1.6, angle, colors)
         turtle.right(angle * 2)
-        drawTree(level - 1, branchLength / 1.6, angle, colors)
+        right_branch = drawTree(level - 1, branchLength / 1.6, angle, colors)
         turtle.left(angle)
         turtle.backward(branchLength)
+        return 1 + left_branch + right_branch
+    
     else:
         # light colors for leaves
         turtle.color(list(colors.values())[0]) # list colors?
         turtle.stamp()
+        return 1
 
-# if they pick 1 then the program is drawing a tree
-print("Print 1, if you want me to draw you a tree")
+while True:
+    # program is asking user to input 1 or 2 
+    choice = input("Enter 1 if you want a tree, 2 if u don't want to continue: ")
 
+    # the program make sures the user picks 1 or 2, it uses the while loop to make sure they input 1 or 2, if they input something that isnt 1 or 2 the program would ask them to input 1 or 2
+    while choice not in ["1", "2"]:
+        choice = input("Invalid input. Please enter 1 or 2: ") 
 
-# program is asking user to input 1 or 2 
-choice = input("Enter 1 if you want a tree, 2 if u don't want to continue: ")
-
-# the program make sures the user picks 1 or 2, it uses the while loop to make sure they input 1 or 2, if they input something that isnt 1 or 2 the program would ask them to input 1 or 2
-while choice not in ["1", "2"]:
-   choice = input("Invalid input. Please enter 1 or 2: ") 
-
-print("You chose option number " + choice)
-
-if choice == "1":
+    if choice == "0":
+        print("Bye, the code has ended!")
+        break
+    
     print("Choose a tree color theme:")
-    print("original tree, red, orange, yellow, green, brown")
+    print("original, red, orange, yellow, green, brown")
     theme_choice = input("Enter theme: ").lower()
 
     while theme_choice not in tree_themes:
         theme_choice = input("Invalid input, enter a theme: ").lower()
-
     theme = tree_themes[theme_choice]
-    turtle.goto(0, -180)
-    turtle.left(90)
-    turtle.pendown()
-    drawTree(level, recursive_drawings["tree"]["branchLength"], recursive_drawings["tree"]["angle"], theme)
 
-else:
+    level = int(input("Enter how many levels of the drawing you want: "))
+    if level > 50:
+        print("Too much to print.")
+        exit()
+
     turtle.done()
-
-level = int(input("Enter how many levels of the drawing you want: "))
-if level > 50:
-    print("Too much to print.")
-    exit()
-
-turtle.done()
