@@ -35,7 +35,7 @@ You'll create a fractal generator that can draw at least one recursive pattern (
 - [ ] Dictionary keys clearly named and organized (2 pts)
 - [ ] Values include configuration, colors, or descriptions (2 pts)
 
-### **Turtle Graphics Integration**
+### **Turtle Graphics Integration**::
 - [ ] Proper turtle setup and configuration (2 pts)
 - [ ] Function actually draws visual patterns using turtle commands (2 pts)
 - [ ] Visual output demonstrates recursive concepts effectively (2 pts)
