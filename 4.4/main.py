@@ -121,6 +121,6 @@ if drawing_choice == "1":
 
 else:
     turtle.pendown()
-    drawSnowflake(recursive_drawings["tree"]["length"], level, theme)
+    snowflake(recursive_drawings["tree"]["length"], level, theme)
 
 turtle.done()
