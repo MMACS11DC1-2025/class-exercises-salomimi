@@ -7,7 +7,7 @@ turtle.speed(0)
 turtle.penup()
 turtle.left(90)
 
-recursive_drawings = {
+recursive_drawing = {
     "tree": {
         "angle": 25,"branchLength": 100
     }
@@ -44,6 +44,7 @@ def drawTree(level, branchLength, angle, colors):
         return 1
     
 next_tree_x = -200
+total_recursive_calls = 0
 
 while True:
     # program is asking user to input 1 or 2 
@@ -53,8 +54,9 @@ while True:
     while choice not in ["1", "2"]:
         choice = input("Invalid input. Please enter 1 or 2: ") 
 
-    if choice == "0":
+    if choice == "2":
         print("Bye, the code has ended!")
+        print("Total recursive calls made in total:" + str(total_recursive_calls))
         break
     
     print("Choose a tree color theme:")
@@ -70,9 +72,13 @@ while True:
         print("Too much to print.")
         exit()
     
+    turtle.penup()
     turtle.goto(next_tree_x, -180)
+    turtle.right(90)
+    turtle.left(90)
     turtle.pendown()
-    total_calls = drawTree(level, recursive_drawings["tree"]["branchLength"], recursive_drawings["tree"]["angle"], theme)
-    print("The amount of trees recursivaly called:" + str(total_calls))
+    
+    calls = drawTree(level, recursive_drawing["tree"]["branchLength"], recursive_drawing["tree"]["angle"], theme)
+    total_recursive_calls += calls
 
     next_tree_x += 250
