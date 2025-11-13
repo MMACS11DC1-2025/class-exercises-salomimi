@@ -34,9 +34,42 @@
     - xpected output: small tree, few branches more than level 3 in text case 1
     - actual output: what i thought was gonna output
 
-3. - input: 1 -> theme = "green", level 5
-    - xpected output: small tree, few branches more than level 3 in text case 1
+3. - input: 1 -> theme = "brown", level 8
+    - xpected output: bogger tree, mpre branches, more detailed
     - actual output: what i thought was gonna output
+
+## Reasonable recursion depth
+- too low: level 0-2:
+    - its either a tree(level 1-2) or just a leaf(level 0), its too simple and only a few branches
+
+- too high: level >10:
+    - the drawing in generql takes too long, it becomes too clumped up in the screen 
+
+## Debugging and testing 
+1. Program didnt print the recursive count correctly
+    - it was a variable stuck in one fucntion (local_scope)
+    - then i added another variable but it only counted how many trees were made
+    Fix:
+    - added a varibe out of the function (global variable) which was total_recursive_calls and returned the counts from the drawTree function
+
+2. If the user printed multiple trees it would overlapp each other
+    Fix:
+    - added the varible next_tree_x and turtle.goto() to shift the postion of the next tree made
+
+3. The program woud crash if the user inputted an invalid input
+    - ex. for when the program ask the user if they wanta tree (1), ir not(2), if the user inputs neither 1 or 2 the program itself would crash
+    fox:
+    - addign while loops to vaildate the input ("1" or "2") and vaild color themes
+
+4. Turtle facing the wrogn way
+    - at first the turtke faced the wrong direction and it would print the tree horizontally instead of vertically
+    fix:
+    - added tutle.left(90) so it would turn the right way befroe drwing
+
+# meannignful commits
+1. base recursive tree function
+2. added color themse and user input
+3. added total recursive call and cmments
 
 
 
@@ -46,8 +79,5 @@
 
 
 - [ ] Code must be well commented to enhance readability (2 pts)
-- [ ] Test cases with expected vs actual results (2 pts)
-- [ ] Screenshots of visual outputs for each test case (2 pts)
-- [ ] Discussion of reasonable recursion depth (for your program, what depth is too low, what is too high, and why?) (2 pts)
+
 - [ ] Documentation of debugging and testing process in README.md (2 pts)
-- [ ] Source code is committed to repository on Github with **at least 3 meaningful commits on different days** (2 pts
