@@ -1,5 +1,5 @@
 ### **Documentation & Process**
-- [ ] README.md file with project documentation explaining the approach used and how to use the program (2 pts)
+
 ## Project overrevieq
 - This code uses turtle graphic's and recursion to draw recursive trees.
 - Every time a user runs the program they can decide to draw a tree if they want, how many levels of branches, select which color theme they want, at the end when the user wants to stop runnign the code it will print out how many recursive calls we did in total.
@@ -66,18 +66,40 @@
     fix:
     - added tutle.left(90) so it would turn the right way befroe drwing
 
-# meannignful commits
+## Peer evaluation
+Peer review by Serene Lee
+-Good! I like all the details and various colours to choose from to customize the trees
+
+PROS
+-No errors or bugs in the code
+-Accurately used recursion
+-Appropriate function names
+-More complex use of while loop
+
+CONS
+-Drawing not really creative, only building up code upon examples from class material (recursion)
+
+SALOMI AIYATHURAI PEER REVIEW
+By Jayden Wong
+
+Very good program! I like all the color themes you have, makes each users result feel unique. Keeps asking if the user wants to draw a tree which is nice until the user inputs 2
+
+Input Validation using while loops look very good
+User interface very direct and simple
+
+I like the function, easy to understand.
+Accurately returns number of times recursion occurred
+
+I would add more comments and details in my code to get full marks, some sections not explained (lines 50-80)
+
+Also, I would add a if/else statement preventing the user from inputing 0 levels, as it only stamps and moves on.
+
+good job! I am impressed
+
+## meannignful commits
 1. base recursive tree function
 2. added color themse and user input
 3. added total recursive call and cmments
 
 
 
-
-
-
-
-
-- [ ] Code must be well commented to enhance readability (2 pts)
-
-- [ ] Documentation of debugging and testing process in README.md (2 pts)
