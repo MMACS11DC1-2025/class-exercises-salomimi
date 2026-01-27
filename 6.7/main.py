@@ -1,5 +1,3 @@
-# selection sort
-
 import time 
 from PIL import Image 
 
