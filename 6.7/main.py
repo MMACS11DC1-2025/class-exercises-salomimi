@@ -72,17 +72,17 @@ def main():
 
     start_time = time.time()
 
-    for filename in image_files:
+    for filename in images:
         try:
             score = analyze_image(filename)
             results.append((filename, score))
         except:
-            print("Could not process {filename}")
+            print("Could not process", filename)
 
     end_time = time.time()
     elapsed = end_time - start_time
 
-    print("Pixel processing completed in {elapsed:.3} seconds")
+    print("Pixel processing completed in", elapsed, "seconds")
 
     # sort results
     sorted_results = selection_sort(results)
